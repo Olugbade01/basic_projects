@@ -7,10 +7,11 @@ def file_name_checker(file_name):
             json.load(file)
         
         return True
-
-    except ValueError:
-
+    except OSError:
+    
         return False
+        
+        
 
 def add_expense():
 
@@ -48,10 +49,9 @@ def file_name_creator(name):
 
         file_Name = name 
 
-    elif not name.endswith(".json") and  name.isidentifier():
+    elif not name.endswith(".json") and name.isidentifier():
 
         file_Name = name + ".json"
-
 
     else:
 
@@ -60,6 +60,7 @@ def file_name_creator(name):
     return file_Name
 
 def create_read_file(file_name):
+
     if file_name_checker(file_name):
 
         with open(file_name, "r") as file:
@@ -68,10 +69,16 @@ def create_read_file(file_name):
     else:
         file_content  = []
 
-        with open(file_name, "w") as file:
-            json.dump(file_content, file)
+        file_writer(file_name, file_content)
 
         with open(file_name, "r") as f:
             file_list = json.load(f)
 
     return file_list
+
+def file_writer(file_Name, file_Content):
+
+    with open(file_Name, "w") as file:
+        file_written = json.dump(file_Content, file, indent=4)
+
+    return file_written

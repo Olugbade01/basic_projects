@@ -1,5 +1,5 @@
 import json
-
+import menu_operators
 import utils
 
 print('Welcome to your EXPENCE TRACKER')
@@ -13,8 +13,8 @@ file_list = utils.create_read_file(file_name)
     
 while True:
 
-    menu = input("What would you like to do? (1) Add expense, (2) View all expense, (3) Calculate total spending, (4) Calculate spending by category, (5) Delete an expense"
-    " OR (6) Save expenses to a file: ")
+    menu = input(f"What would you like to do? (1) Add expense, (2) View all expense, (3) Calculate total spending, (4) Calculate spending by category, (5) Delete an expense"
+    " OR (6) Save all expenses: ")
 
     if utils.input_validator(menu):
         menu = int(menu)
@@ -25,15 +25,35 @@ while True:
             print("Expense successfully added")
             continue
         elif menu == 2:
-            print(f"Open {name}.json file in this directory")
+            if len(file_list) == 0:
+                print("Your expense list is empty")
+            print(file_list)
 
             continue
 
-        elif menu >= 3 :
-            print("Enter a valid option 1, 2 or 3!")
-            break
-    else:
-        print("Enter a valid option 1, 2 or 3!")
+        elif menu == 3 :
+            total_spending = menu_operators.total_spending_calculator(file_list)
+            print(total_spending)
+            continue
+        elif menu == 4:
+            if len(file_list) == 0:
+                print("There is nothing here yet!! Spend some money.")
+            else:
+               res =  menu_operators.cal_spending_by_category(file_list)
+               print(res)
+            continue
 
-with open(file_name, 'a') as file:
-    json.dump(file_list, file)
+        elif menu == 5:
+            after_deletion = menu_operators.delete_expense(file_list)
+            file_list = after_deletion
+            print("Expense successfully deleted.")
+            continue
+
+        elif menu == 6:
+
+            utils.file_writer(file_name, file_list)
+
+        else:
+            print("Invalid option! Try again ")
+    else:
+        print("Enter a valid option 1 to 6!")
