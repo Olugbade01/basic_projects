@@ -1,47 +1,33 @@
 import json
+
+import utils
+
 print('Welcome to your EXPENCE TRACKER')
 
-def input_validator(amount):
-    try: 
-        float(amount)
-        return True
 
-    except ValueError:
-        return False
+name = input("What is your name?: ") 
 
-def add_expense():
+file_name = utils.file_name_creator(name)
 
-    amount = input("Enter the amount of your expense: ")
+if utils.file_name_checker(file_name):
 
-    category = input('Enter the category of the expense: ')
-    description = input('Describe the category of the the expense: ')
+    with open(file_name, "r") as file:
+        file_list = json.load(file)
 
-    if input_validator(amount):
-        amount = amount
+else:
+    file_name = []
 
-        result = {
-            'Amount': amount,
-            'Category': category,
-            'Description': description
-        }
-
-    else:
-        result = 'Enter a valid amount!'
-
-
-    return result
-report = []
-name = input("What is your name?: ")
+    with
 while True:
 
     menu = input("What would you like to do? (1) Add expense, (2) View account summary OR (3) Exit: ")
 
-    if input_validator(menu):
+    if utils.input_validator(menu):
         menu = int(menu)
         if menu == 1:
 
-            expense = add_expense()
-            report.append(expense)
+            expense = utils.add_expense()
+            file_list.append(expense)
             print("Expense successfully added")
             continue
         elif menu == 2:
@@ -55,5 +41,5 @@ while True:
     else:
         print("Enter a valid option 1, 2 or 3!")
 
-with open(name + '.json', 'a') as file:
-    json.dump(report, file)
+with open(file_name, 'a') as file:
+    json.dump(file_list, file)
