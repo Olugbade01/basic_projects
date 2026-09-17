@@ -33,8 +33,6 @@ def add_expense():
 
 
     return result
-
-
 def input_validator(amount):
     try: 
         float(amount)
@@ -42,7 +40,6 @@ def input_validator(amount):
 
     except ValueError:
         return False
-
 
 def file_name_creator(name):
     file_Name = ""
@@ -61,3 +58,20 @@ def file_name_creator(name):
         file_Name = "Error!  Enter a valid variable name"
 
     return file_Name
+
+def create_read_file(file_name):
+    if file_name_checker(file_name):
+
+        with open(file_name, "r") as file:
+            file_list = json.load(file)
+
+    else:
+        file_content  = []
+
+        with open(file_name, "w") as file:
+            json.dump(file_content, file)
+
+        with open(file_name, "r") as f:
+            file_list = json.load(f)
+
+    return file_list

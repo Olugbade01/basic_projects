@@ -9,18 +9,12 @@ name = input("What is your name?: ")
 
 file_name = utils.file_name_creator(name)
 
-if utils.file_name_checker(file_name):
-
-    with open(file_name, "r") as file:
-        file_list = json.load(file)
-
-else:
-    file_name = []
-
-    with
+file_list = utils.create_read_file(file_name)
+    
 while True:
 
-    menu = input("What would you like to do? (1) Add expense, (2) View account summary OR (3) Exit: ")
+    menu = input("What would you like to do? (1) Add expense, (2) View all expense, (3) Calculate total spending, (4) Calculate spending by category, (5) Delete an expense"
+    " OR (6) Save expenses to a file: ")
 
     if utils.input_validator(menu):
         menu = int(menu)
