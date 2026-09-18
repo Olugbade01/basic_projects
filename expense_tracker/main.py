@@ -13,8 +13,13 @@ file_list = utils.create_read_file(file_name)
     
 while True:
 
-    menu = input(f"What would you like to do? (1) Add expense, (2) View all expense, (3) Calculate total spending, (4) Calculate spending by category, (5) Delete an expense"
-    " OR (6) Save all expenses: ")
+    menu = input(f"""What would you like to do? 
+    (1) Add expense
+    (2) View all expense
+    (3) Calculate total spending
+    (4) Calculate spending by category
+    (5) Delete an expense
+    (6) Save all expenses: """)
 
     if utils.input_validator(menu):
         menu = int(menu)

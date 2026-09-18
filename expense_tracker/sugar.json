@@ -1,12 +1,22 @@
 [
     {
-        "Amount": "50000",
+        "Amount": 50000.0,
         "Category": "Clearing",
         "Description": "grass"
     },
     {
-        "Amount": "40000000",
+        "Amount": 40000000.0,
         "Category": "Salary",
         "Description": "October"
+    },
+    {
+        "Amount": 40000000.0,
+        "Category": "Salary",
+        "Description": "October"
+    },
+    {
+        "Amount": 50000.0,
+        "Category": "Medical ",
+        "Description": "Medication"
     }
 ]

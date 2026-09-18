@@ -41,15 +41,18 @@ def cal_spending_by_category(file_list):
     file_list = list(file_list)
     amount_lists = []
     category_list = []
+    print(file_list)
     for file in file_list:
         file = dict(file)
         amount_lists = []
         category_list = []
+
         for key, value in file.items():
             if key == "Category":
                 category_list.append(value)
             if key == 'Amount':
                 amount_lists.append(value)
+    print(type(amount_lists[0]))
 
     dict_categ_amount = dict(zip(category_list, amount_lists))
 

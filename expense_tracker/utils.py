@@ -11,36 +11,36 @@ def file_name_checker(file_name):
     
         return False
         
-        
-
-def add_expense():
-
-    amount = input("Enter the amount of your expense: ")
-
-    category = input('Enter the category of the expense: ')
-    description = input('Describe the category of the the expense: ')
-
-    if input_validator(amount):
-        amount = amount
-
-        result = {
-            'Amount': amount,
-            'Category': category,
-            'Description': description
-        }
-
-    else:
-        return 'Enter a valid amount!'
-
-
-    return result
-def input_validator(amount):
+def input_validator(value):
     try: 
-        float(amount)
+        float(value)
         return True
 
     except ValueError:
         return False
+
+def add_expense():
+
+    try:
+        while True:
+            amount = input_validator(input("Enter the amount of your expense: "))
+          
+    except ValueError:
+        print("Enter a valid number")
+      ategory = input('Enter the category of the expense: ')
+    description = input('Describe the category of the the expense: ')
+                
+   
+  
+    result = {
+        'Amount': amount,
+        'Category': category,
+        'Description': description
+    }
+
+
+    return result
+
 
 def file_name_creator(name):
     file_Name = ""
