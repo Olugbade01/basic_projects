@@ -24,38 +24,41 @@ def delete_expense(listed_dicts):
 
         delete_item = input("Enter the category of the item you would like to delete: ")
         delete_item = delete_item.strip()
-        for each_item in file_list:
+        i = 0
+        while i < len(file_list):
+            try:
+                i += 1
+                if listed_dicts[i]["Category"] == delete_item:
+                    file_list.remove(file_list[i])
+                    print("""===========================================
+Expense successfully deleted.
+===========================================""")
+                    break
+                else:
+                    continue
+            except IndexError:
+                print('No such file here!')
 
-            
-            each_item = dict(each_item)
-            if not each_item.__contains__(delete_item):
-                return "No such expense in here! Try again"
-            else:
-                for key in each_item.keys():
-                    if key == delete_item:
-                        file_list = file_list.__delattr__(each_item)
+
     return file_list
 
 def cal_spending_by_category(file_list):
-
-    file_list = list(file_list)
-    amount_lists = []
-    category_list = []
-    print(file_list)
+    spending_by_cat = {}
     for file in file_list:
-        file = dict(file)
-        amount_lists = []
-        category_list = []
+        if file['Category'] in spending_by_cat:
+            spending_by_cat[file['Category']] += file['Amount']
 
-        for key, value in file.items():
-            if key == "Category":
-                category_list.append(value)
-            if key == 'Amount':
-                amount_lists.append(value)
-    print(type(amount_lists[0]))
+        else:
+             spending_by_cat[file['Category']] = file['Amount']
 
-    dict_categ_amount = dict(zip(category_list, amount_lists))
+    lst_cate_totals = []
+    for key, value in spending_by_cat.items():
+        result = {
+            "Amount": value,
+            "Category": key
+        }
+        lst_cate_totals.append(result)
+    return lst_cate_totals
 
-    return dict_categ_amount
 
 

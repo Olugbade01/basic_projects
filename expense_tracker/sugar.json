@@ -1,22 +1,32 @@
 [
     {
-        "Amount": 50000.0,
+        "Amount": 25000.0,
         "Category": "Clearing",
         "Description": "grass"
     },
     {
-        "Amount": 40000000.0,
+        "Amount": 25000.0,
         "Category": "Salary",
         "Description": "October"
     },
     {
-        "Amount": 40000000.0,
+        "Amount": 35000.0,
         "Category": "Salary",
         "Description": "October"
     },
     {
-        "Amount": 50000.0,
+        "Amount": 25000.0,
         "Category": "Medical ",
         "Description": "Medication"
+    },
+    {
+        "Amount": 25000,
+        "Category": "Food",
+        "Description": "Bread"
+    },
+    {
+        "Amount": 400000.0,
+        "Category": "Property",
+        "Description": "Land"
     }
 ]

@@ -3,7 +3,7 @@ import menu_operators
 import utils
 
 print('Welcome to your EXPENCE TRACKER')
-
+# print("-" * 70)
 
 name = input("What is your name?: ") 
 
@@ -13,13 +13,21 @@ file_list = utils.create_read_file(file_name)
     
 while True:
 
-    menu = input(f"""What would you like to do? 
+    menu = input(f"""
+    ===========================================
+    |                MENU LIST                |
+    ===========================================
+    What would you like to do?;
     (1) Add expense
     (2) View all expense
     (3) Calculate total spending
     (4) Calculate spending by category
     (5) Delete an expense
-    (6) Save all expenses: """)
+    (6) Save all expenses 
+    (7) Exit
+    ===========================================
+    : """)
+    print("    ===========================================")
 
     if utils.input_validator(menu):
         menu = int(menu)
@@ -27,12 +35,19 @@ while True:
 
             expense = utils.add_expense()
             file_list.append(expense)
-            print("Expense successfully added")
+            print("-" * 70)
+            print("Expense successfully added ")
+
             continue
         elif menu == 2:
             if len(file_list) == 0:
                 print("Your expense list is empty")
-            print(file_list)
+            else:
+
+                print("All Expenses!!!")
+                print("-" * 120)
+                print(file_list)
+                print("-" * 120)
 
             continue
 
@@ -42,23 +57,40 @@ while True:
             continue
         elif menu == 4:
             if len(file_list) == 0:
+                print("-" * 70)
                 print("There is nothing here yet!! Spend some money.")
+                print("-" * 70)
             else:
-               res =  menu_operators.cal_spending_by_category(file_list)
-               print(res)
+               
+               by_category =  menu_operators.cal_spending_by_category(file_list)
+            #    print("#######################################################################     Your Spending By Categories     ************************************************************")
+               print("-" * 70)
+               print('\n')
+               print(by_category)
+               print("-" * 70)
+
+            #    print("************************************************************===================================================************************************************************")
             continue
 
         elif menu == 5:
+            print("-" * 70)
             after_deletion = menu_operators.delete_expense(file_list)
             file_list = after_deletion
-            print("Expense successfully deleted.")
+
             continue
 
         elif menu == 6:
 
             utils.file_writer(file_name, file_list)
+            print("-" * 70)
+            print(f"All expense saved in {file_name} ")
+            print("-" * 70)
+        elif menu == 7:
+            break
 
         else:
+            print("-" * 70)
             print("Invalid option! Try again ")
     else:
+        print("-" * 70)
         print("Enter a valid option 1 to 6!")

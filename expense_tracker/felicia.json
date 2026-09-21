@@ -1,0 +1,12 @@
+[
+    {
+        "Amount": 50000.0,
+        "Category": "power",
+        "Description": "electricity"
+    },
+    {
+        "Amount": 4000.0,
+        "Category": "Food",
+        "Description": "Launch"
+    }
+]

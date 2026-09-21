@@ -19,29 +19,42 @@ def input_validator(value):
     except ValueError:
         return False
 
+    
+def amount_validator(amount):
+    try:
+        float(amount)
+        return True
+    except ValueError:
+        return False
+
+    
+
 def add_expense():
 
-    try:
-        while True:
-            amount = input_validator(input("Enter the amount of your expense: "))
-          
-    except ValueError:
-        print("Enter a valid number")
-      ategory = input('Enter the category of the expense: ')
-    description = input('Describe the category of the the expense: ')
-                
-   
-  
+
+    while True:
+
+        stramount = input("Enter the amount of the expense you want to add: ")
+
+        if amount_validator(stramount):
+            amount = float(stramount) 
+            break
+        else:
+            print("Enter a valid number, Try again!!!")
+
+    category = input("Enter the category of the expense: ")
+    description = input("Describ the category in one word: ")
+
     result = {
-        'Amount': amount,
-        'Category': category,
-        'Description': description
+        "Amount": amount,
+        "Category": category,
+        "Description": description
     }
-
-
+    
     return result
 
 
+    
 def file_name_creator(name):
     file_Name = ""
     name = str(name).strip()
