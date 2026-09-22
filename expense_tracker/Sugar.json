@@ -1,0 +1,37 @@
+[
+    {
+        "Amount": 35000.0,
+        "Category": "Salary",
+        "Description": "October"
+    },
+    {
+        "Amount": 25000,
+        "Category": "Food",
+        "Description": "Bread"
+    },
+    {
+        "Amount": 400000.0,
+        "Category": "Property",
+        "Description": "Land"
+    },
+    {
+        "Amount": 3000.0,
+        "Category": "Utility",
+        "Description": "Electricity"
+    },
+    {
+        "Amount": 3000.0,
+        "Category": "Utility",
+        "Description": "Electricity"
+    },
+    {
+        "Amount": 20000.0,
+        "Category": "Medical",
+        "Description": "test result"
+    },
+    {
+        "Amount": 5.0,
+        "Category": "Food",
+        "Description": "gs"
+    }
+]

@@ -13,43 +13,64 @@ def file_name_checker(file_name):
         
 def input_validator(value):
     try: 
-        float(value)
+        int(value)
         return True
 
     except ValueError:
         return False
 
-    
-def amount_validator(amount):
-    try:
-        float(amount)
-        return True
-    except ValueError:
-        return False
+def get_valid_float(prompt):
 
-    
+   try:
+       float(prompt)
+       return True
+   except ValueError:
+       return False
 
 def add_expense():
 
 
     while True:
 
-        stramount = input("Enter the amount of the expense you want to add: ")
+        stramount = input("Enter the amount of the expense you want to add: ").strip()
 
-        if amount_validator(stramount):
+        if get_valid_float(stramount):
             amount = float(stramount) 
-            break
+            if amount > 0:
+                amount = amount
+            
+                break
+            else:
+                print("Amount can't be less than or equal to 0")
         else:
             print("Enter a valid number, Try again!!!")
 
-    category = input("Enter the category of the expense: ")
-    description = input("Describ the category in one word: ")
+    while True:
+
+
+        category = input("Enter the category of the expense(Food, Transportation, Utility,...): ").title().strip()
+        if category != "":
+            category = category
+            break
+        else:
+            print("Category cannot be empty")
+    while True:
+
+        description = input("Describe the category of the expense(Lunch, Gift from brother,...): ").strip()
+
+        if description != "":
+            description = description
+            break
+        else:
+            print('Description cannot be empty')
 
     result = {
         "Amount": amount,
         "Category": category,
         "Description": description
     }
+
+    
     
     return result
 

@@ -1,0 +1,12 @@
+[
+    {
+        "Amount": 7800.67,
+        "Category": "Transportation",
+        "Description": "fuel"
+    },
+    {
+        "Amount": 8700.0,
+        "Category": "Food",
+        "Description": "lunch"
+    }
+]

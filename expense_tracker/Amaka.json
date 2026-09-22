@@ -1,0 +1,27 @@
+[
+    {
+        "Amount": 20000.0,
+        "Category": "Transportation",
+        "Description": "Transportation for the month"
+    },
+    {
+        "Amount": 3000.0,
+        "Category": "Food",
+        "Description": "Breakfast"
+    },
+    {
+        "Amount": 15500.0,
+        "Category": "Subscription",
+        "Description": "Airtel ODU"
+    },
+    {
+        "Amount": 1200.0,
+        "Category": "Transportation",
+        "Description": "Work transport"
+    },
+    {
+        "Amount": 800.0,
+        "Category": "Transportation",
+        "Description": "church"
+    }
+]
